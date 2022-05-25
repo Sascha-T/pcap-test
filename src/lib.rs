@@ -975,7 +975,6 @@ impl Capture<Inactive> {
     }
 
     /// Set rfmon mode on or off. The default is maintained by pcap.
-    #[cfg(not(windows))]
     pub fn rfmon(self, to: bool) -> Capture<Inactive> {
         unsafe { raw::pcap_set_rfmon(self.handle.as_ptr(), to as _) };
         self
