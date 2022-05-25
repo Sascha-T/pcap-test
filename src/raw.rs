@@ -160,6 +160,7 @@ extern "C" {
     // pub fn bpf_image(arg1: *const bpf_insn, arg2: c_int) -> *mut c_char;
     // pub fn bpf_dump(arg1: *const bpf_program, arg2: c_int);
     pub fn pcap_get_selectable_fd(arg1: *mut pcap_t) -> c_int;
+    pub fn pcap_set_rfmon(arg1: *mut pcap_t, arg2: c_int) -> c_int;
 }
 
 #[cfg(libpcap_1_2_1)]
@@ -228,10 +229,4 @@ pub const WINPCAP_MINTOCOPY_DEFAULT: c_int = 16000;
 #[link(name = "wpcap")]
 extern "C" {
     pub fn pcap_setmintocopy(arg1: *mut pcap_t, arg2: c_int) -> c_int;
-}
-
-#[link(name = "pcap")]
-extern "C" {
-    pub fn pcap_set_rfmon(arg1: *mut pcap_t, arg2: c_int) -> c_int;
-    // pub fn pcap_inject(arg1: *mut pcap_t, arg2: *const c_void, arg3: size_t) -> c_int;
 }
